@@ -34,6 +34,11 @@ class TestDiscount(TestCase):
         expected_discount = 1
         self.assertEqual(expected_discount, discount(prices))
     
+    def test_list_of_strings(self):
+        prices = ['1', '2', '87']
+        # TODO what -do- we expect?
+        # Input into webforms is usually a string, as opposed to int or float
+        self.fail('Finish test for list of strings') # TODO remove this when code when test is finished
 
     # what other data might this function have to deal with?
         # Probably floating point numbers, though error handling for non-number strings would be good. 
