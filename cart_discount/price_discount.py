@@ -14,11 +14,7 @@ def discount(item_prices):
         return 0
     else:
         # If more than 3 items, return lowest priced item. 
-        # Replace lowest_price variable with lowest number as you iterate through the list
-        lowest_price = item_prices[0]
-        for item_price in item_prices:
-            if item_price < lowest_price:
-                lowest_price = item_price
+        lowest_price = min(item_prices)
         return lowest_price
 
 
