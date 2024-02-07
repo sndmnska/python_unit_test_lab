@@ -36,10 +36,17 @@ def extract_answer_from_response(response):
     """
 
     # TODO what would happen if the response dictionary was not in the expected form?
-    # TODO can you modify this function to print an error message, and return None
-    #   if the response dictionary is not in this structure? 
-    answer = response['answer']
-    return answer
+        # It would throw a KeyError since the keys aren't matching up. 
+
+    # answer = response['answer'] 
+    try:
+        answer = response['magic']['answer'] # Refactored the code for the new nested key
+        return answer
+    except (KeyError):
+        print('*** KeyError - The psychic connection to the 8 ball isn\'t quite lining up. Please ask your local programmer to check the program\'s connection to JSON.')
+        return None
+
+
 
 
 if __name__ == '__main__':

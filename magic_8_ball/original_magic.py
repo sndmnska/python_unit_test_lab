@@ -6,6 +6,6 @@ magic_8_ball_url = f'https://magic-8-ball-mctc.uc.r.appspot.com/magic/JSON/{ques
 
 response = requests.get(magic_8_ball_url).json()
 
-answer = response['answer']
+answer = response['magic']['answer'] # refactored for nested JSON response
 
 print(f'The magic 8 ball says....  {answer}')

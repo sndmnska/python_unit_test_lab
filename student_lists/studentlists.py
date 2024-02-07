@@ -12,13 +12,18 @@ class ClassList:
     Student names in a class must be unique.
     """
 
-    def __init__(self, max_students):
+        # raise an exception - StudentError - if max_students is zero or negative. 
+        # Write test to confirm.
 
+    def __init__(self, max_students):
+        if max_students <= 0:
+            raise StudentError('Number of students must be greater than 0')
+        
         self.class_list = []
         self.max_students = max_students
 
-        # TODO raise an exception - StudentError - if max_students is zero or negative. 
-        # Write test to confirm.
+
+
 
 
     def add_student(self, student):
@@ -54,6 +59,17 @@ class ClassList:
 
     ## TODO add a method called is_class_full.
     # This should return True or False to indicate if the class is full.
+    def is_class_full(class_list, max_students):
+        # len(class_list) is not a valid function, because it is asking about the number of objects in a group of objects
+        # max_students is the number given to this group of objects, so we can reference that. 
+        number_of_students = 0
+        for student in class_list:
+            number_of_students += 1
+        
+        if number_of_students >= max_students: # because students can be might be past maximum "theoretically".
+            return True
+        else:
+            return False
 
 
     def __str__(self):
@@ -77,6 +93,7 @@ def main():
         print('Did not add student twice')
 
     capstone.add_student('David')
+    print(f'888 {capstone}')
     capstone.add_student('Elliot')
     capstone.add_student('Flora')  # Shouldn't add
 
